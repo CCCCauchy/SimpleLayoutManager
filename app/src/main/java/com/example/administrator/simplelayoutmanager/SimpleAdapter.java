@@ -6,8 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
-
 /**
  * Created by WangXing on 2017/10/9.
  */
@@ -16,9 +14,13 @@ public class SimpleAdapter extends RecyclerView.Adapter {
 
     private final int VIEW_TYPE_CENTER = 0;
     private final int VIEW_TYPE_OUTSIDE = 1;
+    private int centerX;
+    private int centerY;
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        centerX = parent.getWidth() / 2;
+        centerY = parent.getHeight() / 2;
         SimpleViewHolder viewHolder = null;
         switch (viewType) {
             case VIEW_TYPE_CENTER:
@@ -36,8 +38,15 @@ public class SimpleAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        SimpleViewHolder simpleViewHolder = (SimpleViewHolder) holder;
-        simpleViewHolder.textView.setText("TEXT" + position);
+        final SimpleViewHolder simpleViewHolder = (SimpleViewHolder) holder;
+        simpleViewHolder.textView.setText("测试测试" + position);
+        final View itemView = holder.itemView;
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                simpleViewHolder.textView.setBackgroundResource(R.mipmap.green_cicle);
+            }
+        });
     }
 
     @Override
