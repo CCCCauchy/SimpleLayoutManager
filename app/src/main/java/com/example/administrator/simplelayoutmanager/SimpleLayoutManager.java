@@ -1,13 +1,10 @@
 package com.example.administrator.simplelayoutmanager;
 
-import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
-import android.graphics.PointF;
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.LinearInterpolator;
 
 /**
  * Created by WangXing on 2017/10/9.
